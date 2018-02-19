@@ -1,0 +1,13 @@
+{
+  "name": "@types/fh-mbaas-api",
+  "author": "MikeyBurkman",
+  "description": "TypeScript definitions for fh-mbaas-api",
+  "license": "MIT",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/MikeyBurkman/fh-mbaas-api-typings.git"
+  },
+  "typings": "fh-mbaas-api.d.ts",
+  "version": "0.0.1"
+}
