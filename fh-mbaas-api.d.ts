@@ -102,7 +102,7 @@ declare module 'fh-mbaas-api' {
     criteria?: {
       alias?: string[];
       categories?: string[];
-      deviceType?: TODO; // TODO: Docs say array but example is a single object?
+      deviceType?: string[];
       variants?: string[];
     }
   }
@@ -178,16 +178,14 @@ declare module 'fh-mbaas-api' {
       function handleDelete(dataset_id: string, onCreate: (dataset_id: string, uid: string, callback: StandardCb<any>, meta_data: any) => void): void;
       function globalHandleDelete(onCreate: (dataset_id: string, uid: string, callback: StandardCb<any>, meta_data: any) => void): void;
 
-      // TODO: What type is the timestamp???
-      function handleCollision(dataset_id: string, onCollision: (dataset_id: string, hash: string, timestamp: TODO, uid: string, pre: any, post: any, meta_data: any) => void): void;
-      function globalHandleCollision(onCollision: (dataset_id: string, hash: string, timestamp: Date, uid: string, pre: any, post: any, meta_data: any) => void): void;
+      function handleCollision(dataset_id: string, onCollision: (dataset_id: string, hash: string, timestamp: number, uid: string, pre: any, post: any, meta_data: any) => void): void;
+      function globalHandleCollision(onCollision: (dataset_id: string, hash: string, timestamp: number, uid: string, pre: any, post: any, meta_data: any) => void): void;
 
       function listCollisions(dataset_id: string, onList: (dataset_id: string, callback: StandardCb<{ [hash: string]: any }>, meta_data: any) => void): void;
       function globalListCollisions(onList: (dataset_id: string, callback: StandardCb<{ [hash: string]: any }>, meta_data: any) => void): void;
 
-      // TODO: Wtf are the callback params
-      function removeCollisions(dataset_id: string, onRemove: (dataset_id: string, collision_hash: string, callback: StandardCb<TODO>, meta_data: any) => void): void;
-      function globalListCollisions(onRemove: (dataset_id: string, collision_hash: string, callback: StandardCb<TODO>, meta_data: any) => void): void;
+      function removeCollisions(dataset_id: string, onRemove: (dataset_id: string, collision_hash: string, callback: NoRespCb, meta_data: any) => void): void;
+      function globalListCollisions(onRemove: (dataset_id: string, collision_hash: string, callback: NoRespCb, meta_data: any) => void): void;
 
       function interceptRequest(dataset_id: string, onIntercept: (dataset_id: string, interceptor_params: SyncInterceptParams, callback: NoRespCb) => void): void;
       function globalListCollisions(onIntercept: (dataset_id: string, interceptor_params: SyncInterceptParams, callback: NoRespCb) => void): void;
