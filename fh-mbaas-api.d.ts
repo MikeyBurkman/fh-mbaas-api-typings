@@ -18,7 +18,7 @@ declare module 'fh-mbaas-api' {
     guid: string;
     path: string;
     method: string;
-    params?: { [name: string]: string | string[] };
+    params: object;
     timeout?: number;
     headers?: { [header: string]: string | string[] };
   }
